@@ -1,5 +1,6 @@
 package com.example.bungaapps.Pertemuan_3
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -33,6 +34,9 @@ class ThirdActivity : AppCompatActivity() {
             //Mengambil value dari inputNo Tujuan dan menampilkan di Logcat
             val nomor = binding.inputNoTujuan.text
             Toast.makeText(this, "Pesan berhasil dikirm ke $nomor", Toast.LENGTH_SHORT).show()
+
+            val intent = Intent(this, ThirdResultActivity::class.java)
+            startActivity(intent)
         }
     }
 }

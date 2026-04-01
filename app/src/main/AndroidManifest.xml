@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BungaApps">
         <activity
+            android:name=".Pertemuan_3.ThirdResultActivity"
+            android:exported="false" />
+        <activity
             android:name=".Pertemuan_2.SecondActivity"
             android:exported="false" />
         <activity
