@@ -27,12 +27,13 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         binding.btnToFourth.setOnClickListener {
+            val intent = Intent(this, FourthActivity::class.java)
             intent.putExtra("nama", "Politeknik Caltex Riau")
             intent.putExtra("asal", "Rumbai")
             intent.putExtra("usia", 25)
 
             startActivity(intent)
-            finish()
+
 
         }
     }
