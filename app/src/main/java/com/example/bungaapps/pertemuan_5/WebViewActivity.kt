@@ -62,6 +62,7 @@ class WebViewActivity : AppCompatActivity() {
                 return true
             }
         }
+        //tez
 
         binding.webView.loadUrl("https://merdeka.com")
 
