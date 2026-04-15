@@ -12,7 +12,9 @@
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:elevation="0dp"
+        app:layout_scrollFlags="scroll|enterAlways|snap">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -37,7 +39,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center_horizontal">
-<!--tes-->
+
             <Button
                 android:id="@+id/btnWebView"
                 android:layout_width="wrap_content"
@@ -45,9 +47,7 @@
                 android:text="Web View"
                 android:layout_marginTop="16dp"
                 app:icon="@drawable/ic_arrow_back"
-                app:iconGravity="textStart"
-                />
-
+                app:iconGravity="textStart" />
 
             <TextView
                 android:layout_width="match_parent"
