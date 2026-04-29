@@ -7,8 +7,12 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.bungaapps.Pertemuan_2.SecondActivity
+import com.example.bungaapps.Pertemuan_3.ThirdActivity
 import com.example.bungaapps.databinding.ActivityMainBinding
 import com.example.bungaapps.pertemuan_4.FourthActivity
+import com.example.bungaapps.pertemuan_5.FifthActivity
+import com.example.bungaapps.pertemuan_7.SeventhActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -27,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
 
         binding.btnToFourth.setOnClickListener {
-            val intent = Intent(this, FourthActivity::class.java)
+            val intent = Intent(this, SecondActivity::class.java)
             intent.putExtra("nama", "Politeknik Caltex Riau")
             intent.putExtra("asal", "Rumbai")
             intent.putExtra("usia", 25)
@@ -54,6 +58,26 @@ class MainActivity : AppCompatActivity() {
                 }
                 .setNegativeButton("Tidak", null)
                 .show()
+        }
+        binding.button4.setOnClickListener {
+            val intent = Intent(this, SeventhActivity::class.java)
+            startActivity(intent)
+
+        }
+        binding.button.setOnClickListener {
+            val intent = Intent(this, ThirdActivity::class.java)
+            startActivity(intent)
+
+        }
+        binding.button2.setOnClickListener {
+            val intent = Intent(this, FourthActivity::class.java)
+            startActivity(intent)
+
+        }
+        binding.button3.setOnClickListener {
+            val intent = Intent(this, FifthActivity::class.java)
+            startActivity(intent)
+
         }
     }
 }
