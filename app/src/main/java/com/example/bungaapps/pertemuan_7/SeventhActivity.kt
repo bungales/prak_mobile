@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
 import com.example.bungaapps.R
 import com.example.bungaapps.databinding.ActivitySeventhBinding
 
@@ -27,11 +28,33 @@ class SeventhActivity : AppCompatActivity() {
         }
         setSupportActionBar(binding.toolbar)
         supportActionBar?.apply {
-            title = "Web Merdeka"
+            title = "Pertemuan 7"
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
         }
+        // Menampilkan fragment pertama secara default
+        replaceFragment(SatuFragment())
 
+        // Setup event click untuk mengganti fragment
+        binding.btnFragment1.setOnClickListener {
+            replaceFragment(SatuFragment())
+        }
+
+        binding.btnFragment2.setOnClickListener {
+            replaceFragment(DuaFragment())
+        }
+
+        binding.btnFragment3.setOnClickListener {
+            replaceFragment(TigaFragment())
+        }
+
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(binding.fragmentContainer.id, fragment)
+//            .addToBackStack(null)
+            .commit()
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
