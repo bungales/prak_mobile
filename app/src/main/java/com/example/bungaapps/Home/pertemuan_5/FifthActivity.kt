@@ -1,4 +1,4 @@
-package com.example.bungaapps.pertemuan_5
+package com.example.bungaapps.Home.pertemuan_5
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,9 +6,9 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import com.example.bungaapps.R
 import com.example.bungaapps.databinding.ActivityFifthBinding
+import kotlin.math.abs
 
 class FifthActivity : AppCompatActivity() {
 
@@ -31,7 +31,7 @@ class FifthActivity : AppCompatActivity() {
         // IMPROVISASI TOOLBAR: Sticky scroll transparansi
         binding.appBarLayout.addOnOffsetChangedListener { appBarLayout, verticalOffset ->
             val totalScrollRange = appBarLayout.totalScrollRange
-            val scrollProgress = kotlin.math.abs(verticalOffset).toFloat() / totalScrollRange.toFloat()
+            val scrollProgress = abs(verticalOffset).toFloat() / totalScrollRange.toFloat()
             binding.toolbar.background?.alpha = (255 * (1 - scrollProgress)).toInt()
             if (scrollProgress > 0.8f) {
                 supportActionBar?.title = "Bunga Apps"

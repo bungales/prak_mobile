@@ -1,4 +1,4 @@
-package com.example.bungaapps.Pertemuan_2
+package com.example.bungaapps.Home.Pertemuan_2
 
 import android.os.Bundle
 import android.util.Log

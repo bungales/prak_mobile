@@ -1,13 +1,16 @@
-package com.example.bungaapps.pertemuan_5
+package com.example.bungaapps.Home.pertemuan_5
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
 import android.webkit.JsResult
 import android.webkit.WebChromeClient
+import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ProgressBar
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.example.bungaapps.R
 import com.example.bungaapps.databinding.ActivityWebViewBinding
 
@@ -23,11 +26,11 @@ class WebViewActivity : AppCompatActivity() {
 
         // IMPROVISASI WEBVIEW: Progress Bar
         progressBar = ProgressBar(this).apply {
-            layoutParams = androidx.appcompat.widget.Toolbar.LayoutParams(
-                androidx.appcompat.widget.Toolbar.LayoutParams.WRAP_CONTENT,
-                androidx.appcompat.widget.Toolbar.LayoutParams.WRAP_CONTENT
+            layoutParams = Toolbar.LayoutParams(
+                Toolbar.LayoutParams.WRAP_CONTENT,
+                Toolbar.LayoutParams.WRAP_CONTENT
             ).apply {
-                gravity = android.view.Gravity.END or android.view.Gravity.CENTER_VERTICAL
+                gravity = Gravity.END or Gravity.CENTER_VERTICAL
             }
             visibility = View.GONE
         }
@@ -44,7 +47,7 @@ class WebViewActivity : AppCompatActivity() {
         binding.webView.webViewClient = WebViewClient()
         binding.webView.settings.javaScriptEnabled = true
         binding.webView.webChromeClient = object : WebChromeClient() {
-            override fun onProgressChanged(view: android.webkit.WebView?, newProgress: Int) {
+            override fun onProgressChanged(view: WebView?, newProgress: Int) {
                 if (newProgress < 100) {
                     progressBar.visibility = View.VISIBLE
                     supportActionBar?.subtitle = "Loading: $newProgress%"
@@ -53,7 +56,7 @@ class WebViewActivity : AppCompatActivity() {
                     supportActionBar?.subtitle = "Selesai"
                 }
             }
-            override fun onJsAlert(view: android.webkit.WebView?, url: String?, message: String?, result: JsResult?): Boolean {
+            override fun onJsAlert(view: WebView?, url: String?, message: String?, result: JsResult?): Boolean {
                 AlertDialog.Builder(this@WebViewActivity)
                     .setTitle("Alert")
                     .setMessage(message)

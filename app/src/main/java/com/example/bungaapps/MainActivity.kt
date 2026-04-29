@@ -7,12 +7,12 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.bungaapps.Pertemuan_2.SecondActivity
-import com.example.bungaapps.Pertemuan_3.ThirdActivity
+import com.example.bungaapps.Home.Pertemuan_2.SecondActivity
+import com.example.bungaapps.Home.Pertemuan_3.ThirdActivity
 import com.example.bungaapps.databinding.ActivityMainBinding
-import com.example.bungaapps.pertemuan_4.FourthActivity
-import com.example.bungaapps.pertemuan_5.FifthActivity
-import com.example.bungaapps.pertemuan_7.SeventhActivity
+import com.example.bungaapps.Home.pertemuan_4.FourthActivity
+import com.example.bungaapps.Home.pertemuan_5.FifthActivity
+import com.example.bungaapps.Home.pertemuan_7.SeventhActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
