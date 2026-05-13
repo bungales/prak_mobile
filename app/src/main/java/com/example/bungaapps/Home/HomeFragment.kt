@@ -15,6 +15,7 @@ import com.example.bungaapps.Home.Pertemuan_3.ThirdActivity
 import com.example.bungaapps.Home.pertemuan_4.FourthActivity
 import com.example.bungaapps.Home.pertemuan_5.FifthActivity
 import com.example.bungaapps.Home.pertemuan_7.SeventhActivity
+import com.example.bungaapps.Home.pertemuan_9.NinthActivity
 import com.example.bungaapps.R
 import com.example.bungaapps.databinding.FragmentHomeBinding
 
@@ -82,6 +83,12 @@ class HomeFragment : Fragment() {
         }
         binding.button3.setOnClickListener {
             val intent = Intent(requireContext(), FifthActivity::class.java)
+            startActivity(intent)
+
+        }
+
+        binding.button5.setOnClickListener {
+            val intent = Intent(requireContext(), NinthActivity::class.java)
             startActivity(intent)
 
         }

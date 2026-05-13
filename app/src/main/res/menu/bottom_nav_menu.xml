@@ -7,7 +7,7 @@
 
     <item
         android:id="@+id/message"
-        android:icon="@drawable/mail"
+        android:icon="@drawable/email"
         android:title="Message" />
 
     <item

@@ -20,7 +20,9 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:text="Ini Fragment More "
         android:textSize="30dp"
-        android:text="Ini Fragment More " />
+        tools:layout_editor_absoluteX="37dp"
+        tools:layout_editor_absoluteY="-28dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
