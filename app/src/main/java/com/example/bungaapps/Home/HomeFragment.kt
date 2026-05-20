@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.bungaapps.AuthActivity
 import com.example.bungaapps.Home.Pertemuan_2.SecondActivity
 import com.example.bungaapps.Home.Pertemuan_3.ThirdActivity
+import com.example.bungaapps.Home.pertemuan_10.TenthActivity
 import com.example.bungaapps.Home.pertemuan_4.FourthActivity
 import com.example.bungaapps.Home.pertemuan_5.FifthActivity
 import com.example.bungaapps.Home.pertemuan_7.SeventhActivity
@@ -89,6 +90,11 @@ class HomeFragment : Fragment() {
 
         binding.button5.setOnClickListener {
             val intent = Intent(requireContext(), NinthActivity::class.java)
+            startActivity(intent)
+
+        }
+        binding.button6.setOnClickListener {
+            val intent = Intent(requireContext(), TenthActivity::class.java)
             startActivity(intent)
 
         }
