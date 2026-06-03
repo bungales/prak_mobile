@@ -7,9 +7,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bungaapps.AuthActivity
+import com.example.bungaapps.Data.Api.PhotoApiClient
 import com.example.bungaapps.Home.Pertemuan_2.SecondActivity
 import com.example.bungaapps.Home.Pertemuan_3.ThirdActivity
 import com.example.bungaapps.Home.pertemuan_10.TenthActivity
@@ -17,8 +22,10 @@ import com.example.bungaapps.Home.pertemuan_4.FourthActivity
 import com.example.bungaapps.Home.pertemuan_5.FifthActivity
 import com.example.bungaapps.Home.pertemuan_7.SeventhActivity
 import com.example.bungaapps.Home.pertemuan_9.NinthActivity
+import com.example.bungaapps.Home.photo.PhotoAdapter
 import com.example.bungaapps.R
 import com.example.bungaapps.databinding.FragmentHomeBinding
+import kotlinx.coroutines.launch
 
 
 class HomeFragment : Fragment() {
@@ -67,6 +74,7 @@ class HomeFragment : Fragment() {
                 .setNegativeButton("Tidak", null)
                 .show()
         }
+
         binding.button4.setOnClickListener {
             val intent = Intent(requireContext(), SeventhActivity::class.java)
             startActivity(intent)
@@ -97,6 +105,28 @@ class HomeFragment : Fragment() {
             val intent = Intent(requireContext(), TenthActivity::class.java)
             startActivity(intent)
 
+        }
+        loadPhoto()
+    }
+    private fun loadPhoto() {
+        lifecycleScope.launch {
+            try {
+                val photos = PhotoApiClient.apiService.getPhotos()
+                val adapter = PhotoAdapter(photos)
+                binding.rvGallery.adapter = adapter
+
+                /** List Tampil Vertical*/
+//                binding.rvGallery.layoutManager = LinearLayoutManager(requireContext())
+
+                /** List Tampil Horizontal */
+                //binding.rvGallery.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
+                /** List Tampil Grid */
+                binding.rvGallery.layoutManager = GridLayoutManager(requireContext(), 2)
+
+            } catch (e: Exception) {
+                Toast.makeText(requireContext(), "Gagal memuat gambar", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }

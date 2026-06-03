@@ -20,5 +20,4 @@ class Tutorial2Fragment : Fragment() {
         return inflater.inflate(R.layout.fragment_tutorial2, container, false)
     }
 
-
 }
