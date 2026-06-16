@@ -14,4 +14,9 @@
         android:id="@+id/more"
         android:icon="@drawable/more"
         android:title="More" />
+
+    <item
+        android:id="@+id/note"
+        android:icon="@drawable/ic_notes"
+        android:title="Note" />
 </menu>
