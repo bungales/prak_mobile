@@ -12,18 +12,17 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bungaapps.AuthActivity
 import com.example.bungaapps.Data.Api.PhotoApiClient
 import com.example.bungaapps.Home.Pertemuan_2.SecondActivity
 import com.example.bungaapps.Home.Pertemuan_3.ThirdActivity
 import com.example.bungaapps.Home.pertemuan_10.TenthActivity
+import com.example.bungaapps.Home.pertemuan_13.ThirteenthActivity
 import com.example.bungaapps.Home.pertemuan_4.FourthActivity
 import com.example.bungaapps.Home.pertemuan_5.FifthActivity
 import com.example.bungaapps.Home.pertemuan_7.SeventhActivity
 import com.example.bungaapps.Home.pertemuan_9.NinthActivity
 import com.example.bungaapps.Home.photo.PhotoAdapter
-import com.example.bungaapps.R
 import com.example.bungaapps.databinding.FragmentHomeBinding
 import kotlinx.coroutines.launch
 
@@ -36,8 +35,6 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        /** Ganti menjadi versi binding */
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -106,6 +103,10 @@ class HomeFragment : Fragment() {
             startActivity(intent)
 
         }
+        binding.button7.setOnClickListener {
+            val intent = Intent(requireContext(), ThirteenthActivity::class.java)
+            startActivity(intent)
+        }
         loadPhoto()
     }
     private fun loadPhoto() {
@@ -114,14 +115,6 @@ class HomeFragment : Fragment() {
                 val photos = PhotoApiClient.apiService.getPhotos()
                 val adapter = PhotoAdapter(photos)
                 binding.rvGallery.adapter = adapter
-
-                /** List Tampil Vertical*/
-//                binding.rvGallery.layoutManager = LinearLayoutManager(requireContext())
-
-                /** List Tampil Horizontal */
-                //binding.rvGallery.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-
-                /** List Tampil Grid */
                 binding.rvGallery.layoutManager = GridLayoutManager(requireContext(), 2)
 
             } catch (e: Exception) {
